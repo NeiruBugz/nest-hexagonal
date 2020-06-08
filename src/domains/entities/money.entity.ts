@@ -21,4 +21,12 @@ export class MoneyEntity {
     return this._amount;
   }
 
+  negate() {
+    return new MoneyEntity(this.amount.negated());
+  }
+
+  isPositiveOrZero() {
+    return this.amount.comparedTo(0) >= 0;
+  }
+
 }

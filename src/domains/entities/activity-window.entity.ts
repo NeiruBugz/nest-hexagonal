@@ -26,5 +26,7 @@ export class ActivityWindowEntity {
       .filter((activity) => activity.sourceAccountId === accountId)
       .map((activity) => activity.money)
       .reduce(MoneyEntity.add, MoneyEntity.ZERO());
+
+    return MoneyEntity.add(depositBalance, withdrawalBalance.negate());
   }
 }
